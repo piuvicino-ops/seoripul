@@ -1,0 +1,20 @@
+{
+  "name": "서리풀1 보상금 시뮬레이션",
+  "short_name": "서리풀1 보상",
+  "description": "서리풀1지구 보상수준 및 사업비 분석 시뮬레이터",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f5f7fb",
+  "theme_color": "#2347d9",
+  "lang": "ko-KR",
+  "icons": [
+    {
+      "src": "./icon-512-1.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
