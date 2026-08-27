@@ -117,6 +117,15 @@ button{
 .infoTable th{color:var(--muted);font-weight:800;background:#fafbfc}
 .infoTable tr.major td:first-child{font-weight:900}
 .infoCallout{margin-top:12px;padding:13px;border-radius:13px;background:var(--soft);font-size:13px;line-height:1.65}
+.planImage{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line);background:#fff}
+.planCaption{font-size:14px;font-weight:900;margin:0 0 10px;color:var(--text)}
+.supplySplit{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.supplyGroup{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fafbfc}
+.supplyGroup .groupTitle{font-size:12px;color:var(--muted);font-weight:800;margin-bottom:8px}
+.supplyGroup .groupTotal{font-size:22px;font-weight:900;margin-bottom:8px}
+.supplyLine{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-top:1px solid var(--line);font-size:13px}
+.supplyLine b{white-space:nowrap}
+@media(max-width:560px){.tabs{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.tabs::-webkit-scrollbar{display:none}.tabbtn{flex:0 0 auto;min-width:96px}.supplySplit{grid-template-columns:1fr}}
 
 </style>
 <style>
@@ -138,6 +147,7 @@ input, select, textarea {
   <button class="tabbtn active" data-tab="basicPane">시나리오 예상</button>
   <button class="tabbtn" data-tab="hopePane">희망 보상</button>
   <button class="tabbtn" data-tab="infoPane">전체 필지정보</button>
+  <button class="tabbtn" data-tab="landUsePane">토지이용계획</button>
   <button class="tabbtn" data-tab="costPane">사업비분석</button>
 </div>
 
@@ -258,6 +268,58 @@ input, select, textarea {
       </table>
     </div>
     <div class="source">기준자료: 첨부 보고서 1~4번 항목. 공시지가 자료는 2024년 개별공시지가 기준입니다.</div>
+  </div>
+</div>
+
+<div id="landUsePane" class="tabpane">
+  <div class="card" style="border-left:4px solid var(--accent);">
+    <div class="section-title">서리풀1지구 토지이용 및 주택공급 계획</div>
+    <div class="note" style="font-size:13px;color:var(--text);">
+      현재 지구계획 수립 자료를 기준으로 주거용지와 주택공급 구조를 요약한 것입니다.
+      지구계획 수립 과정에서 세부 면적·용적률·공급호수는 변경될 수 있습니다.
+    </div>
+    <div class="infoHero">
+      <div class="infoBox"><div class="k">주거용지 면적 비율</div><div class="v">약 35%</div><div class="s">708,407㎡ · 전체 2,018,074㎡ 기준</div></div>
+      <div class="infoBox"><div class="k">평균 용적률</div><div class="v">180%</div><div class="s">분석용 평균 적용값</div></div>
+      <div class="infoBox"><div class="k">총 공급호수</div><div class="v">18,470호</div><div class="s">인구수용계획 기준</div></div>
+      <div class="infoBox"><div class="k">수용인구</div><div class="v">42,481명</div><div class="s">인구수용계획 기준</div></div>
+    </div>
+
+    <div class="supplySplit">
+      <div class="supplyGroup">
+        <div class="groupTitle">사업시행자 공급호수</div>
+        <div class="groupTotal">17,469호 <span style="font-size:12px;color:var(--muted);font-weight:700;">(약 94.6%)</span></div>
+        <div class="supplyLine"><span>공동주택</span><b>14,046호</b></div>
+        <div class="supplyLine"><span>주상복합</span><b>3,423호</b></div>
+      </div>
+      <div class="supplyGroup">
+        <div class="groupTitle">민간 공급호수</div>
+        <div class="groupTotal">1,001호 <span style="font-size:12px;color:var(--muted);font-weight:700;">(약 5.4%)</span></div>
+        <div class="supplyLine"><span>단독주택</span><b>208호</b></div>
+        <div class="supplyLine"><span>업무복합</span><b>793호</b></div>
+      </div>
+    </div>
+    <div class="source">※ 공급주체 구분은 본 분석 목적상 공동주택·주상복합을 사업시행자 공급, 단독주택·업무복합을 민간 공급으로 구분한 것입니다.</div>
+  </div>
+
+  <div class="card">
+    <div class="planCaption">1. 토지이용계획표</div>
+    <img class="planImage" src="./18005.jpg" alt="서리풀1지구 토지이용계획표">
+  </div>
+
+  <div class="card">
+    <div class="planCaption">2. 인구수용계획</div>
+    <img class="planImage" src="./18022.jpg" alt="서리풀1지구 인구수용계획">
+  </div>
+
+  <div class="card">
+    <div class="planCaption">3. 토지이용계획도</div>
+    <img class="planImage" src="./18035.jpg" alt="서리풀1지구 토지이용계획도">
+  </div>
+
+  <div class="card">
+    <div class="planCaption">4. 공원·녹지계획도</div>
+    <img class="planImage" src="./18037.jpg" alt="서리풀1지구 공원 녹지계획도">
   </div>
 </div>
 
