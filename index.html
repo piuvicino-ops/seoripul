@@ -399,7 +399,29 @@ input, select, textarea {
   background-color: #e0f2fe !important;
 }
 </style>
-<link href="https://piuvicino-ops.github.io/seoripul/" rel="canonical"/><meta content="https://piuvicino-ops.github.io/seoripul/" property="og:url"/></head><body><div class="wrap"><div class="header">
+<link href="https://piuvicino-ops.github.io/seoripul/" rel="canonical"/><meta content="https://piuvicino-ops.github.io/seoripul/" property="og:url"/>
+<style>
+/* Mobile overflow fix for comparison cards/tables */
+.card, .note, .infoCallout, .hint, .source, .section-title {
+  overflow-wrap:anywhere;
+  word-break:keep-all;
+}
+.infoTable {
+  width:100%;
+  table-layout:fixed;
+}
+.infoTable th, .infoTable td {
+  white-space:normal !important;
+  overflow-wrap:anywhere;
+  word-break:keep-all;
+  vertical-align:top;
+}
+@media (max-width:560px){
+  .infoTable{font-size:11px;}
+  .infoTable th,.infoTable td{padding:8px 5px;}
+}
+</style>
+</head><body><div class="wrap"><div class="header">
 <h1 style="text-align:center;">서리풀1 보상금 시뮬레이션</h1>
 <div class="makerLine">by 새정이마을 김민철</div>
 </div>
@@ -592,8 +614,7 @@ input, select, textarea {
       생활기본시설비는 도로용지비 상당액, 도로 조성비, 상·하수도 및 주요 간선시설, 관련 설계·감리·직접·간접비를 포함한 추정치입니다.
     </div>
 <div class="source">※ 이주자택지 공급가는 기준면적 내 공급을 가정한 참고 추정치입니다. 기준면적 초과분이나 실제 공급조건은 사업시행자의 확정 기준 및 감정평가 결과에 따라 달라질 수 있습니다.</div>
-</div>
-<div class="card">
+</div><div class="card">
 <div class="section-title">6. 2029~2030년 모집공고 기준 예상 분양가</div>
 <div class="note">
 <b>2031년 입주</b>를 가정하고, 실제 분양가상한제 산정에 중요한 시점인 <b>2029~2030년 입주자모집공고 시점</b>을 기준으로 추정합니다.
@@ -615,8 +636,7 @@ input, select, textarea {
       950만원/㎡는 서초권 입지·높은 택지비·가산비를 충분히 반영한 상단 시나리오로 봅니다.
     </div>
 <div class="source">※ 실제 분양가상한액은 해당 입주자모집공고 시점의 택지비, 기본형건축비, 가산비 및 최종 사업계획에 따라 달라집니다.</div>
-</div>
-<div class="card">
+</div><div class="card">
 <div class="section-title">7. 이주자주택(APT) 공급가 추정</div>
 <div class="note">
       위 일반분양가의 <b>기준·상향·고가 시나리오</b>를 그대로 사용하되, 이주자주택에는 생활기본시설비가 제외되는 점을 반영해 공급가를 추정했습니다.
@@ -638,7 +658,90 @@ input, select, textarea {
       이에 따라 일반분양가 대비 공급면적 1㎡당 약 <b>108만원</b> 정도가 낮아지는 효과가 발생하는 것으로 추정했습니다.
     </div>
 <div class="source">※ 실제 이주자주택 공급가격은 사업시행자의 이주대책 기준, 실제 주택형별 대지지분, 생활기본시설비 산정 및 공급조건에 따라 달라질 수 있습니다. 본 값은 사업비 분석을 위한 추정치입니다.</div>
+</div><div class="card">
+<div class="section-title">8. 인접 강남권 GB 공공택지지구 수서역세권과 비교 검증</div>
+<div class="note">
+  수서역세권 공공주택지구는 <b>강남권 개발제한구역(GB)을 해제하여 조성한 공공택지</b>라는 점에서 서리풀1지구의 사업비 구조를 검증하는 유용한 비교사례입니다.
+  다만 수서는 보상시점이 <b>2018년</b>, 서리풀1은 <b>2027년 5월 예정</b>으로 약 9년의 차이가 있으므로, 2018년의 토지비 비중을 그대로 적용하기보다 <b>토지가격 상승과 비토지비 상승의 차이, 서초권 입지 차이</b>를 단계적으로 반영해 보는 것이 합리적입니다.
 </div>
+<div style="margin-top:10px;">
+<table class="infoTable">
+<thead><tr><th>비교 항목</th><th>수서역세권</th><th>서리풀1</th></tr></thead>
+<tbody>
+<tr><td>입지·사업특성</td><td>강남권·GB 해제 공공택지</td><td><b>서초권·GB 공공주택지구</b></td></tr>
+<tr><td>보상평가 시점</td><td><b>2018년</b><br/><span style="font-size:11px;color:var(--muted);">협의보상 2018.9.17 시작</span></td><td><b>2027년 5월 예정</b></td></tr>
+<tr><td>유상면적 비율</td><td>약 31.2%</td><td><b>47.3%</b></td></tr>
+<tr><td>전체 택지 관련 사업비</td><td><b>약 0.877조원</b><br/><span style="font-size:11px;color:var(--muted);">LH 최종사업비 8,773.6억원</span></td><td><b>약 7조원 추정</b><br/><span style="font-size:11px;color:var(--muted);">총사업비 15조원 중 건축비 약 8조원 제외</span></td></tr>
+<tr><td>순수 토지보상비</td><td><b>약 0.36조원 추정</b></td><td><b>약 3.8~4.2조원 검증범위</b><br/><span style="font-size:11px;color:var(--muted);">중심값 약 4.0조원</span></td></tr>
+<tr><td>순수 토지보상비 비중</td><td>약 <b>41%</b></td><td>약 <b>54~60%</b></td></tr>
+<tr><td>평당 조성원가</td><td><b>약 2,404만원</b></td><td><b>약 2,420만원</b> <span style="font-size:11px;color:var(--muted);">(현 모델)</span></td></tr>
+<tr><td>참고: LH 공개 ‘용지비’</td><td>약 0.460조원 (52.4%)</td><td>순수 토지보상비와 구분 필요</td></tr>
+</tbody>
+</table>
+</div>
+<div class="infoCallout">
+<b>왜 서리풀1의 순수 토지비 비중이 더 높아질 수 있나?</b><br/>
+① <b>보상시점 차이:</b> 수서는 2018년, 서리풀1은 2027년 5월 예정으로 약 9년의 시차가 있습니다.<br/>
+② <b>상승률 차이:</b> 이 기간 강남권 토지가격 상승률이 공사비·자재비·인건비 등 비토지비 상승률보다 높았다면, 전체 택지사업비에서 순수 토지비가 차지하는 비중도 자연스럽게 커집니다.<br/>
+③ <b>입지 차이:</b> 서리풀1은 서초권 GB로, 수서역세권과 같은 강남권 비교사례라도 토지가격 수준 자체가 더 높을 수 있습니다.<br/>
+④ 따라서 수서의 2018년 순수 토지비 비중 약 <b>41%</b>를 서리풀1에 그대로 적용하면 토지비를 과소평가할 가능성이 있습니다.
+</div>
+<div style="margin-top:10px;">
+<table class="infoTable">
+<thead><tr><th>검증 단계</th><th>순수 토지비 비중</th><th>의미</th></tr></thead>
+<tbody>
+<tr><td>수서역세권 2018년 기준</td><td><b>약 41%</b></td><td>출발 기준</td></tr>
+<tr><td>2018→2027 시점 보정</td><td><b>약 45~50%</b></td><td>토지가격 상승이 비토지비보다 높다는 가정</td></tr>
+<tr><td>서초권 입지 차이 추가 반영</td><td><b>50%대 중후반</b></td><td>지역 가격수준 차이 반영</td></tr>
+<tr class="major"><td><b>서리풀1 검증범위</b></td><td><b>약 54~60%</b></td><td><b>순수 토지보상비 약 3.8~4.2조원</b></td></tr>
+</tbody>
+</table>
+</div>
+<div class="infoCallout" style="background:#fff7ed;">
+<b>검증 결론</b><br/>
+수서역세권의 2018년 순수 토지보상비 비중 약 <b>41%</b>를 서리풀1에 그대로 적용하는 것은 적절하지 않습니다.
+약 9년의 시차 동안 강남권 토지가격이 비토지비보다 더 빠르게 상승했고 서초권 입지 차이까지 반영된다면, 서리풀1의 순수 토지보상비 비중이 <b>약 54~60%</b>로 높아지는 것은 설명 가능한 범위입니다.<br/><br/>
+따라서 택지 관련 사업비 약 <b>7조원</b>을 전제로 할 때 순수 토지보상비는 <b>약 3.8~4.2조원</b>, 중심값은 약 <b>4.0조원</b>으로 보는 것이 비교검증상 균형적입니다.
+현재 모델의 <b>4.2조원</b>은 이 검증범위의 <b>상단값</b>에 해당합니다.
+</div>
+<div class="source">※ 수서역세권의 LH 공개 ‘용지비’ 약 4,599억원은 순수 토지매입비 외 보상·취득 관련 비용이 포함될 수 있는 포괄 항목이므로, 순수 토지보상비와 구분해 비교했습니다. 서리풀1의 3.8~4.2조원은 현재 확보된 사업비·토지이용계획과 비교사례를 이용한 검증용 추정범위이며, 실제 보상평가 및 사업시행자의 확정 원가내역에 따라 달라질 수 있습니다.</div>
+</div><div class="card">
+<div class="section-title">9. 남양주진접2 공공주택지구와 비교 검증</div>
+<div class="note">
+남양주진접2는 서리풀1과 <b>유상면적 비율이 매우 유사</b>해 조성원가 구조를 비교하기 좋은 사례입니다. 다만 보상평가는 <b>2019년 하반기</b>, 협의보상은 <b>2019년 12월경 착수</b>한 것으로 확인되어 서리풀1의 <b>2027년 5월 예정</b>보다 약 7년 반 빠릅니다. 또한 진접2는 남양주 GB·농림지역 중심인 반면 서리풀1은 서초권 GB라는 입지 차이가 큽니다.
+</div>
+<div style="margin-top:10px;">
+<table class="infoTable">
+<thead><tr><th>비교 항목</th><th>남양주진접2</th><th>서리풀1</th></tr></thead>
+<tbody>
+<tr><td>보상평가 시점</td><td><b>2019년 하반기</b><br/><span style="font-size:11px;color:var(--muted);">보상착수 2019년 12월경</span></td><td><b>2027년 5월 예정</b></td></tr>
+<tr><td>입지·사업특성</td><td>남양주 GB·농림지역 중심</td><td><b>서초권 GB 공공주택지구</b></td></tr>
+<tr><td>사업면적</td><td>약 129.2만㎡</td><td>약 201.8만㎡</td></tr>
+<tr><td>유상면적 비율</td><td><b>약 49.5%</b></td><td><b>47.3%</b></td></tr>
+<tr><td>전체 택지 관련 사업비</td><td><b>약 2.409조원</b></td><td><b>약 7조원 추정</b></td></tr>
+<tr><td>LH 공개 광의 용지비</td><td>약 0.848조원<br/><span style="font-size:11px;color:var(--muted);">전체의 약 35.2%</span></td><td>순수 토지보상비와 구분 필요</td></tr>
+<tr><td>순수 토지보상비</td><td><b>약 0.59~0.67조원 추정</b><br/><span style="font-size:11px;color:var(--muted);">중심값 약 0.63조원</span></td><td><b>약 3.8~4.2조원 검증범위</b><br/><span style="font-size:11px;color:var(--muted);">중심값 약 4.0조원</span></td></tr>
+<tr><td>순수 토지비 비중</td><td><b>약 24~28%</b></td><td><b>약 54~60%</b></td></tr>
+<tr><td>평당 조성원가</td><td><b>약 1,245만원</b></td><td><b>약 2,420만원 추정</b></td></tr>
+</tbody>
+</table>
+</div>
+<div class="infoCallout">
+<b>검증 포인트</b><br/>
+① 진접2와 서리풀1은 유상면적 비율이 각각 약 <b>49.5%</b>, <b>47.3%</b>로 매우 비슷해 조성원가 계산의 분모 조건이 유사합니다.<br/>
+② 그런데 평당 조성원가는 진접2 약 <b>1,245만원</b>, 서리풀1 약 <b>2,420만원</b>으로 약 1.9배 차이가 납니다.<br/>
+③ 진접2는 2019년 보상, 서리풀1은 2027년 보상 예정이고 입지도 남양주와 서초권으로 크게 다르므로, 이 차이의 상당 부분은 <b>토지가격 수준과 시점 차이</b>에서 발생한다고 보는 것이 합리적입니다.<br/>
+④ 따라서 서리풀1의 순수 토지보상비 비중이 진접2보다 크게 높아지는 구조 자체는 비교사례와 모순되지 않습니다.
+</div>
+<div class="infoCallout" style="background:#fff7ed;">
+<b>검증 결론</b><br/>
+남양주진접2는 서리풀1과 유상면적 비율이 거의 같지만 토지가격 수준과 보상시점이 크게 다릅니다. 동일한 유상면적 구조에서도 진접2의 조성원가가 약 1,245만원/평인 반면 서리풀1은 약 2,420만원/평으로 추정됩니다. 이는 서리풀1의 높은 순수 토지보상비 비중을 설명하는 보조 검증사례로 활용할 수 있습니다.
+</div>
+<div class="source">※ 진접2의 순수 토지보상비는 LH 공개 광의 용지비와 당시 보상단가 자료를 교차해 분리한 추정치이며 확정 공개금액이 아닙니다.</div>
+</div>
+
+
+
 </div><div class="tabpane" id="landUsePane">
 <div class="card" style="border-left:4px solid #2FAF8F;">
 <div class="section-title">서리풀1지구 토지이용 및 주택공급 계획</div>
