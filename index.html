@@ -438,11 +438,11 @@ input, select, textarea {
 <div class="activeTabAnchor"></div>
 <div class="tabpane active" id="basicPane">
 <div class="card" style="border-left:4px solid #2FAF8F;"><div class="section-title" style="margin-bottom:8px;">이 시뮬레이터의 목적</div><div class="note" style="font-size:13px;color:var(--text);">
-      이 앱은 <b>서리풀1지구 전체 토지보상금 규모가 2.5조·3.0조·3.5조·4.2조 원일 경우</b>,
+      이 앱은 <b>서리풀1지구 전체 토지보상금 규모가 2.5조·3.0조·3.2조·3.5조 원일 경우</b>,
       본인의 지목과 개별공시지가를 기준으로 <b>평당 보상단가가 어느 정도 수준이 될 수 있는지 비교해 보는 참고용 시뮬레이션</b>입니다.
       이를 통해 주민 각자의 예상 보상수준을 가늠하고, <b>우리 지구의 전체 보상규모를 어느 정도 수준으로 협상할 필요가 있는지 판단하는 참고자료</b>로 활용하는 것이 목적입니다.
       표시되는 금액은 <b>실제 감정평가액이나 실제 보상금이 아닙니다.</b></div></div><div class="card"><div class="grid"><div><label for="land">지목</label><select autocomplete="off" id="land"></select><div class="hint" id="landAvg"></div></div><div><label for="price">2024년 개별공시지가 (원/㎡)</label><input aria-label="2024년 개별공시지가" data-default="500,000" id="price" inputmode="numeric" type="text" value="500,000"/><div class="hint">보상기준 시점에 맞춘 2024년 개별공시지가를 입력하세요.</div><div class="hint"><a href="https://www.realtyprice.kr" rel="noopener noreferrer" style="color:var(--accent);font-weight:700;text-decoration:none;" target="_blank">2024년 개별공시지가 확인하기 → 부동산공시가격 알리미</a></div></div><div><label>토지면적 (선택)</label><div class="smallrow"><input aria-label="토지면적" data-default="300" id="area" inputmode="decimal" type="text" value="300"/><select id="areaUnit"><option selected="" value="sqm">㎡</option><option value="py">평</option></select></div><div class="hint">입력하면 예상 총 토지보상금도 표시합니다.</div></div></div><div class="summary"><div><div class="hint">같은 지목 평균공시지가 대비</div><b id="relativeText">-</b></div><span class="badge" id="relativeBadge">-</span></div><button class="recalcBtn" id="calcBtn">다시 계산</button></div><div class="card"><div class="section-title">보상비 시나리오별 예상</div><div class="note" style="margin:-4px 0 14px;"><b>2.5조 원</b>은 사업시행자가 제시한 <b>총사업비 5.1조 원 기준의 토지보상금 수준</b>을 가정한 시나리오입니다.
-      3.0조·3.5조·4.2조 원은 보상금 규모가 더 커질 경우를 비교하기 위한 시나리오입니다.
+      3.0조·3.2조·3.5조 원은 보상금 규모가 더 커질 경우를 비교하기 위한 시나리오입니다.
     </div><div class="scenarios" id="scenarios"></div><div class="compare" id="explain"></div></div><div class="card"><div class="section-title">선택 지목의 공시지가 분포 및 지구 내 비중</div><div class="note">선택한 지목이 서리풀1지구 사유지에서 어느 정도 비중을 차지하고, 2024년 개별공시지가가 어떤 범위에 분포하는지 보여줍니다.</div><div class="compare" style="margin-top:12px;"><b>중앙값</b>은 해당 지목의 공시지가를 낮은 순서부터 나열했을 때 정확히 가운데에 위치하는 값입니다.
       평균값처럼 일부 매우 높거나 낮은 공시지가의 영향을 크게 받지 않아, 해당 지목의 전형적인 가격 수준을 보는 데 유용합니다.<br/><br/><b>IQR(사분위범위)</b>은 Q1(하위 25% 지점)부터 Q3(상위 25%가 시작되는 지점)까지의 범위로,
       전체 필지 가운데 <b>중간 50%가 실제로 분포하는 가격 구간</b>을 의미합니다.
@@ -450,9 +450,9 @@ input, select, textarea {
     </div><div class="statgrid" id="landStats"></div><div id="distribution"></div><div class="contextline" id="landContext"></div></div><div class="card"><div class="section-title">계산 방법</div><div class="note">
       ① 선택한 지목의 <b>평균 보상단가</b>를 기준으로 합니다.<br/>
       ② 입력한 개별공시지가가 그 지목 평균보다 몇 % 높거나 낮은지를 계산합니다.<br/>
-      ③ 같은 비율을 해당 지목의 2.5조·3.0조·3.5조·4.2조 평균 보상단가에 적용합니다.<br/><br/><b>개별 필지 추정 보상단가 = 지목별 평균 보상단가 × (내 개별공시지가 ÷ 해당 지목 평균공시지가)</b></div><div class="source">
+      ③ 같은 비율을 해당 지목의 2.5조·3.0조·3.2조·3.5조 평균 보상단가에 적용합니다.<br/><br/><b>개별 필지 추정 보상단가 = 지목별 평균 보상단가 × (내 개별공시지가 ÷ 해당 지목 평균공시지가)</b></div><div class="source">
       기준자료: 「서리풀1 공공주택지구 편입필지 현황 및 토지보상비 시나리오 분석」의
-      2024년 지목별 평균 개별공시지가 및 총 토지보상비 2.5조·3.0조·3.5조·4.2조 시나리오.
+      2024년 지목별 평균 개별공시지가 및 총 토지보상비 2.5조·3.0조·3.2조·3.5조 시나리오.
       2.5조 원은 사업시행자가 제시한 총사업비 5.1조 원 기준의 토지보상금 수준을 가정한 값입니다.
     </div></div><div class="card"><div class="section-title">유의사항</div><div class="note">
       이 결과는 전체 토지보상비를 가정한 <b>통계적 시뮬레이션</b>입니다.
@@ -461,7 +461,7 @@ input, select, textarea {
     </div></div></div><div class="tabpane" id="hopePane">
 <div class="card" style="border-left:4px solid #2FAF8F;">
 <div class="section-title">희망 보상 시뮬레이션</div>
-<div class="note" style="font-size:13px;color:var(--text);">최초 사업비 5.1조원 기준의 토지보상금 2.5조원과, 증액 사업비 15조원 기준의 토지보상금 4.2조원을 비교하여 <b>내가 원하는 보상단가가 되기 위해서는 서리풀1 전체 순수 토지 보상금이 얼마가 되어야 하는지를 확인하는 시뮬레이션입니다.</b></div>
+<div class="note" style="font-size:13px;color:var(--text);">토지보상금 2.5조·3.0조·3.2조·3.5조 시나리오를 비교하여 <b>내가 원하는 보상단가가 되기 위해서는 서리풀1 전체 순수 토지 보상금이 얼마가 되어야 하는지를 확인하는 시뮬레이션입니다.</b></div>
 </div>
 <div class="card">
 <div class="grid">
@@ -478,7 +478,7 @@ input, select, textarea {
 <div style="grid-column:1/-1;">
 <label>참고: 현재 시나리오별 내 토지 예상단가</label>
 <div class="compactrefs" id="hopeScenarioRefs"></div>
-<div class="hint">아래 희망 보상단가를 입력할 때 2.5조·3.0조·3.5조·4.2조 시나리오의 예상단가를 참고할 수 있습니다. 괄호의 배수는 전체 2024년 공시지가 총액 대비 보상금 규모입니다.</div>
+<div class="hint">아래 희망 보상단가를 입력할 때 2.5조·3.0조·3.2조·3.5조 시나리오의 예상단가를 참고할 수 있습니다. 괄호의 배수는 전체 2024년 공시지가 총액 대비 보상금 규모입니다.</div>
 </div>
 <div>
 <label for="hopeUnitPrice">희망 보상단가 (만원/평)</label>
@@ -515,15 +515,21 @@ input, select, textarea {
       총사업비 <b>15조원</b>에서 사업시행자가 직접 시행하는 <b>건축비 8조원</b>을 제외하고,
       나머지 <b>7조원</b>을 택지 조성과 보상에 관련된 사업비로 보는 추정 분석입니다.<br/><br/>
       이 7조원 가운데 <b>약 80%인 5.6조원</b>을 토지·건축물·지장물·이주·영업 등 <b>보상 관련 비용</b>으로 가정하고,
-      다시 그 보상 관련 비용의 <b>65~70%</b>를 <b>순수 토지보상비</b>로 보면 순수 토지보상비는 약 <b>3.64~3.92조원</b>, 중심값은 약 <b>3.8조원</b>으로 추정됩니다.<br/><br/>
+      다시 그 보상 관련 비용의 <b>65~70%</b>를 <b>총 유상 토지취득비</b>로 보면 약 <b>3.64~3.92조원</b>, 중심값은 약 <b>3.78조원</b>으로 추정됩니다.
+      다만 주민에게 실제 지급되는 규모를 보기 위해서는 이 가운데 <b>유상 국·공유지 취득비를 별도로 분리</b>할 필요가 있습니다.
+      중심값 기준으로 유상 국·공유지 취득비를 약 <b>0.48조원</b>으로 추정하면, <b>총 사유지 토지보상비 중심값은 약 3.30조원</b>입니다.<br/><br/>
+      지구 자료상 국유지·공유지는 전체의 약 <b>28.3%</b>이고, 도로·하천은 약 <b>18.9%</b>입니다.
+      도로·하천을 모두 국·공유지의 무상귀속 대상이라고 단순 가정하면 국·공유지의 약 <b>33.1%</b>(약 18.9만㎡·5.71만평)가 유상취득 대상이 됩니다.
+      또한 이 유상취득분을 모두 지목 <b>‘전’</b> 수준으로 평가한다고 가정할 경우, 순수 토지취득비 <b>3.7조원 기준 약 0.47조원</b>이 국·공유지 취득비이고,
+      실제 <b>사유지 토지보상비는 약 3.24조원</b>으로 추정됩니다.<br/><br/>
       여기서 <b>건축비 8조원</b>은 공동주택 건축비만을 의미하는 것이 아니라, 사업시행자가 직접 건축하는 <b>공동주택·주상복합 주거부문·문화복합시설·공공청사·공공주차 및 기타 공공건축·부대복리시설·지하주차장·기계·전기설비·설계·감리·특화공사 등</b>을 포괄하는 전체 건축 관련 비용으로 가정합니다.
       아래 수치는 현재 확보된 자료와 가정을 바탕으로 한 <b>참고용 추정치</b>이며 확정 사업비 내역을 의미하지 않습니다.
     </div>
 <div class="infoHero">
 <div class="infoBox"><div class="k">총사업비</div><div class="v">15조원</div><div class="s">전체 프로젝트 사업비 가정</div></div>
 <div class="infoBox"><div class="k">사업시행자 건축비</div><div class="v">8조원</div><div class="s">공동주택 + 문화복합·공공건축 등</div></div>
-<div class="infoBox"><div class="k">택지 관련 사업비</div><div class="v">7조원</div><div class="s">조성원가 산정 대상 추정</div></div>
-<div class="infoBox"><div class="k">순수 토지보상비 중심값</div><div class="v">약 3.8조원</div><div class="s">추정 범위 3.64~3.92조원</div></div>
+<div class="infoBox"><div class="k">총 사유지 토지보상비 중심값</div><div class="v">약 3.30조원</div><div class="s">주민·사유지 소유자 지급분 추정</div></div>
+<div class="infoBox"><div class="k">유상 국·공유지 취득비</div><div class="v">약 0.48조원</div><div class="s">총 유상 토지취득비에 별도 포함</div></div>
 </div>
 </div>
 <div class="card">
@@ -534,7 +540,9 @@ input, select, textarea {
 <thead><tr><th>구분</th><th>계산 기준</th><th>추정액</th><th>7조 대비</th></tr></thead>
 <tbody>
 <tr><td><b>보상 관련 비용</b></td><td>7조 × 80%</td><td><b>약 5.60조</b></td><td><b>80%</b></td></tr>
-<tr class="major"><td><b>└ 순수 토지보상비</b></td><td>5.6조 × 65~70%</td><td><b>약 3.64~3.92조</b></td><td><b>약 52~56%</b></td></tr>
+<tr><td><b>└ 총 유상 토지취득비</b></td><td>5.6조 × 65~70%</td><td><b>약 3.64~3.92조</b></td><td><b>약 52~56%</b></td></tr>
+<tr class="major"><td><b>　└ 총 사유지 토지보상비</b></td><td>중심값 3.78조 − 국·공유지</td><td><b>약 3.30조</b></td><td><b>약 47%</b></td></tr>
+<tr><td>　└ 유상 국·공유지 취득비</td><td>중심값 기준 추정</td><td><b>약 0.48조</b></td><td>약 6.7%</td></tr>
 <tr><td>└ 기타 보상비</td><td>5.6조 × 30~35%</td><td><b>약 1.68~1.96조</b></td><td>약 24~28%</td></tr>
 <tr><td><b>비보상 조성·부대비</b></td><td>7조 × 20%</td><td><b>약 1.40조</b></td><td><b>20%</b></td></tr>
 <tr><td><b>합계</b></td><td></td><td><b>7.00조</b></td><td><b>100%</b></td></tr>
@@ -542,14 +550,50 @@ input, select, textarea {
 </table>
 </div>
 <div class="infoCallout">
-<b>순수 토지보상비 계산:</b> 7조원 × 80% × 65~70% = <b>약 3.64~3.92조원</b><br/>
-중심값(67.5% 적용)은 약 <b>3.78조원</b>으로, 실무상 약 <b>3.8조원</b>으로 볼 수 있습니다.<br/><br/>
+<b>사유지 토지보상비 중심값:</b><br/>
+총 유상 토지취득비 중심값 <b>3.78조원</b>에서 유상 국·공유지 취득비 약 <b>0.48조원</b>을 제외하면,
+주민·사유지 소유자에게 지급되는 <b>총 사유지 토지보상비는 약 3.30조원</b>으로 추정됩니다.<br/><br/>
+<b>유상 국·공유지 취득비:</b><br/>
+국·공유지 571,377㎡ 중 도로·하천 382,499㎡를 무상귀속 대상으로 가정하면 잔여 <b>188,878㎡(약 57,136평)</b>, 즉 국·공유지의 약 <b>33.1%</b>가 유상취득 대상입니다.
+이를 모두 지목 ‘전’ 수준으로 평가하는 현재 가정에서는 중심값 기준 약 <b>0.48조원</b>의 취득비가 발생하는 것으로 봅니다.<br/><br/>
 기타 보상비에는 건축물·지장물·영업·이주 관련 보상과 각종 보상 부대비용 등이 포함되는 것으로 가정합니다.
 </div>
 <div class="hint">80%와 65~70%는 현재 사업비 구조를 검토하기 위한 가정치입니다. 실제 사업시행자의 세부 원가내역이 공개되면 조정이 필요합니다.</div>
 </div>
 <div class="card">
-<div class="section-title">2. 택지조성원가(조성원가) 추정</div>
+<div class="section-title">2. 국·공유지 유상취득 반영</div>
+<div class="note">
+  기존의 ‘순수 토지보상비’는 실제로는 <b>사유지 보상비 + 유상 국·공유지 취득비</b>를 함께 포함할 수 있습니다.
+  따라서 주민에게 지급되는 사유지 보상규모를 보려면 국·공유지 유상취득분을 분리해 보는 것이 필요합니다.
+</div>
+<div class="metricgrid">
+  <div class="metric"><div class="k">국·공유지 전체</div><div class="v">571,377㎡</div></div>
+  <div class="metric"><div class="k">도로 + 하천</div><div class="v">382,499㎡</div></div>
+  <div class="metric"><div class="k">유상취득 추정면적</div><div class="v">188,878㎡</div></div>
+  <div class="metric"><div class="k">국·공유지 유상취득률</div><div class="v" style="color:var(--accent)">약 33.1%</div></div>
+</div>
+<table class="infoTable" style="margin-top:12px;">
+<thead><tr><th>구분</th><th>중심값 기준 추정액</th><th>비중</th></tr></thead>
+<tbody>
+<tr><td><b>총 유상 토지취득비</b></td><td><b>3.78조원</b></td><td><b>100%</b></td></tr>
+<tr><td>유상 국·공유지 취득비</td><td><b>약 0.48조원</b></td><td>약 12.6%</td></tr>
+<tr class="major"><td><b>총 사유지 토지보상비</b></td><td><b>약 3.30조원</b></td><td><b>약 87.4%</b></td></tr>
+</tbody>
+</table>
+<div class="infoCallout">
+<b>계산 가정</b><br/>
+① 도로 15.2% + 하천 3.7% = 전체의 <b>18.9%</b>를 국·공유지 무상귀속 부분으로 단순 가정<br/>
+② 국·공유지 28.3% 중 잔여 약 <b>33.1%</b>를 유상취득 대상으로 추정<br/>
+③ 유상취득 국·공유지 57,136평을 모두 지목 <b>‘전’</b> 수준으로 평가<br/>
+④ 중심값 3.78조원에 맞춰 3.7조 시나리오의 국·공유지 취득비를 선형 보정 → 약 <b>0.48조원</b>
+</div>
+<div class="source">
+※ 국·공유지의 실제 유상·무상 구분은 필지별 소유관계, 행정재산 여부, 기존 공공시설의 무상귀속 여부에 따라 달라집니다.
+본 계산은 현재 확보된 지목별·소유자별 면적표를 이용한 시나리오 분석입니다.
+</div>
+</div>
+<div class="card">
+<div class="section-title">3. 택지조성원가(조성원가) 추정</div>
 <div class="metricgrid">
 <div class="metric"><div class="k">택지 관련 사업비</div><div class="v">7조원</div></div>
 <div class="metric"><div class="k">유상공급면적</div><div class="v">약 28.89만 평</div></div>
@@ -563,7 +607,7 @@ input, select, textarea {
     </div>
 </div>
 <div class="card">
-<div class="section-title">3. 감정평가단가 추정</div>
+<div class="section-title">4. 감정평가단가 추정</div>
 <div class="note">조성원가 약 <b>2,420만원/평</b>에 개발 완료 후 입지·이용가치 등을 반영한 배수를 적용해 감정평가단가 범위를 비교합니다.</div>
 <table class="infoTable">
 <thead><tr><th>배수(예시)</th><th>감정평가 평당 추정단가</th></tr></thead>
@@ -578,7 +622,7 @@ input, select, textarea {
 <div class="infoCallout"><b>감정평가단가 중심값(추정): 약 3,500만원/평</b><br/>개발 완료 후의 시장가치·입지·이용가치 등을 반영한 택지의 적정 가치를 의미하는 참고 추정치입니다.</div>
 </div>
 <div class="card">
-<div class="section-title">4. 최근 수도권 조성원가 비교</div>
+<div class="section-title">5. 최근 수도권 조성원가 비교</div>
 <div style="">
 <table class="infoTable">
 <thead><tr><th>지구</th><th>공시시점</th><th>유상면적 비율</th><th>평당조성원가</th></tr></thead>
@@ -595,13 +639,14 @@ input, select, textarea {
 <div class="infoCallout">
 <b>핵심 요약</b><br/>
       총사업비 15조원에서 사업시행자 건축비 8조원(공동주택뿐 아니라 문화복합시설·공공청사 등 직접 건축분 포함)을 제외하면 택지 관련 사업비는 7조원으로 추정됩니다.<br/>
-      이 가운데 보상 관련 비용을 약 <b>5.6조원(7조의 80%)</b>으로 보고, 그중 순수 토지보상비를 <b>65~70%</b>로 가정하면 순수 토지보상비는 약 <b>3.64~3.92조원</b>, 중심값은 약 <b>3.8조원</b>입니다.<br/>
+      이 가운데 보상 관련 비용을 약 <b>5.6조원(7조의 80%)</b>으로 보고, 총 유상 토지취득비를 <b>65~70%</b>로 가정하면 중심값은 약 <b>3.78조원</b>입니다.
+      여기서 유상 국·공유지 취득비 약 <b>0.48조원</b>을 제외한 <b>총 사유지 토지보상비 중심값은 약 3.30조원</b>으로 추정합니다.<br/>
       유상면적 비율은 <b>47.3%</b>, 전체 택지 관련 사업비 기준 조성원가는 약 <b>2,420만원/평</b>, 감정평가단가 중심값은 약 <b>3,500만원/평</b>으로 추정합니다.
     </div>
 <div class="source">※ 본 분석은 현재 확보된 사업비·토지이용계획 자료를 기초로 만든 참고용 추정치이며, 실제 사업시행자의 확정 사업비 및 감정평가 결과와 다를 수 있습니다.</div>
 </div>
 <div class="card">
-<div class="section-title">5. 생활기본시설 비용 및 이주자택지 공급가 추정</div>
+<div class="section-title">6. 생활기본시설 비용 및 이주자택지 공급가 추정</div>
 <div class="note">
       토지이용계획상 도로 <b>401,715㎡</b>(전체 사업면적의 약 <b>19.9%</b>)를 핵심 생활기본시설 용지로 보고,
       여기에 도로 조성·포장·구조물, 상·하수도와 전기·통신·가스 등 주요 간선시설, 관련 설계·감리·직접·간접비를 더해 추정했습니다.
@@ -620,7 +665,7 @@ input, select, textarea {
     </div>
 <div class="source">※ 이주자택지 공급가는 기준면적 내 공급을 가정한 참고 추정치입니다. 기준면적 초과분이나 실제 공급조건은 사업시행자의 확정 기준 및 감정평가 결과에 따라 달라질 수 있습니다.</div>
 </div><div class="card">
-<div class="section-title">6. 2029~2030년 모집공고 기준 예상 분양가</div>
+<div class="section-title">7. 2029~2030년 모집공고 기준 예상 분양가</div>
 <div class="note">
 <b>2031년 입주</b>를 가정하고, 실제 분양가상한제 산정에 중요한 시점인 <b>2029~2030년 입주자모집공고 시점</b>을 기준으로 추정합니다.
       분양가상한제는 입주 시점이 아니라 모집공고 시점의 택지비·기본형건축비·건축가산비 등을 토대로 결정되므로,
@@ -642,7 +687,7 @@ input, select, textarea {
     </div>
 <div class="source">※ 실제 분양가상한액은 해당 입주자모집공고 시점의 택지비, 기본형건축비, 가산비 및 최종 사업계획에 따라 달라집니다.</div>
 </div><div class="card">
-<div class="section-title">7. 이주자주택(APT) 공급가 추정</div>
+<div class="section-title">8. 이주자주택(APT) 공급가 추정</div>
 <div class="note">
       위 일반분양가의 <b>기준·상향·고가 시나리오</b>를 그대로 사용하되, 이주자주택에는 생활기본시설비가 제외되는 점을 반영해 공급가를 추정했습니다.
       평균 용적률을 <b>180%</b>로 가정하여 공급면적별 대지지분을 구하고, 그 대지지분에 해당하는 생활기본시설비 <b>약 642만원/평</b>을 일반분양가에서 차감하는 방식입니다.
@@ -664,7 +709,7 @@ input, select, textarea {
     </div>
 <div class="source">※ 실제 이주자주택 공급가격은 사업시행자의 이주대책 기준, 실제 주택형별 대지지분, 생활기본시설비 산정 및 공급조건에 따라 달라질 수 있습니다. 본 값은 사업비 분석을 위한 추정치입니다.</div>
 </div><div class="card">
-<div class="section-title">8. 인접 강남권 GB 공공택지지구 수서역세권과 비교 검증</div>
+<div class="section-title">9. 인접 강남권 GB 공공택지지구 수서역세권과 비교 검증</div>
 <div class="note">
   수서역세권 공공주택지구는 <b>강남권 개발제한구역(GB)을 해제하여 조성한 공공택지</b>라는 점에서 서리풀1지구의 사업비 구조를 검증하는 유용한 비교사례입니다.
   다만 수서는 보상시점이 <b>2018년</b>, 서리풀1은 <b>2027년 5월 예정</b>으로 약 9년의 차이가 있으므로, 2018년의 토지비 비중을 그대로 적용하기보다 <b>토지가격 상승과 비토지비 상승의 차이, 서초권 입지 차이</b>를 단계적으로 반영해 보는 것이 합리적입니다.
@@ -711,7 +756,7 @@ input, select, textarea {
 </div>
 <div class="source">※ 수서역세권의 LH 공개 ‘용지비’ 약 4,599억원은 순수 토지매입비 외 보상·취득 관련 비용이 포함될 수 있는 포괄 항목이므로, 순수 토지보상비와 구분해 비교했습니다. 서리풀1의 3.64~3.92조원은 ‘택지 관련 사업비의 80%가 보상 관련 비용, 그중 65~70%가 순수 토지보상비’라는 가정에 따른 추정범위이며, 실제 보상평가 및 사업시행자의 확정 원가내역에 따라 달라질 수 있습니다.</div>
 </div><div class="card">
-<div class="section-title">9. 남양주진접2 공공주택지구와 비교 검증</div>
+<div class="section-title">10. 남양주진접2 공공주택지구와 비교 검증</div>
 <div class="note">
 남양주진접2는 서리풀1과 <b>유상면적 비율이 매우 유사</b>해 조성원가 구조를 비교하기 좋은 사례입니다. 다만 보상평가는 <b>2019년 하반기</b>, 협의보상은 <b>2019년 12월경 착수</b>한 것으로 확인되어 서리풀1의 <b>2027년 5월 예정</b>보다 약 7년 반 빠릅니다. 또한 진접2는 남양주 GB·농림지역 중심인 반면 서리풀1은 서초권 GB라는 입지 차이가 큽니다.
 </div>
@@ -908,24 +953,24 @@ input, select, textarea {
 </div>
 </div><script>
 const data = {
-  "답": {avg:580584, s:[5975157,7170188,8365219,10038264], parcels:532, area:563030, areaShare:39.8, valueShare:43.7, q1:419500, median:558200, q3:721100, iqr:301600, nPrice:491},
-  "전": {avg:479071, s:[4930422,5916506,6902590,8283109], parcels:618, area:549163, areaShare:38.9, valueShare:37.1, q1:344900, median:450900, q3:565000, iqr:220100, nPrice:584},
-  "임야": {avg:139286, s:[1433481,1720178,2006874,2408248], parcels:129, area:234496, areaShare:16.6, valueShare:3.3, q1:69600, median:87700, q3:142200, iqr:72600, nPrice:129},
-  "대지": {avg:2897319, s:[29818158,35781790,41745422,50094505], parcels:98, area:33742, areaShare:2.4, valueShare:12.2, q1:3223750, median:3463000, q3:3601000, iqr:377250, nPrice:98},
-  "공장용지": {avg:185800, s:[1912186,2294623,2677061,3212472], parcels:1, area:2, areaShare:0.0, valueShare:0.0},
-  "과수원": {avg:625400, s:[6436390,7723667,9010945,10813135], parcels:6, area:8018, areaShare:0.6, valueShare:0.7},
-  "구거": {avg:222775, s:[2292719,2751263,3209807,3851768], parcels:4, area:1143, areaShare:0.1, valueShare:0.0},
-  "도로": {avg:428771, s:[4412755,5295306,6177857,7413428], parcels:33, area:3899, areaShare:0.3, valueShare:0.1},
-  "목장용지": {avg:705000, s:[7255604,8706725,10157845,12189415], parcels:1, area:388, areaShare:0.0, valueShare:0.0},
-  "묘지": {avg:301060, s:[3098400,3718080,4337760,5205312], parcels:5, area:1054, areaShare:0.1, valueShare:0.0},
-  "유원지": {avg:712325, s:[7330990,8797188,10263386,12316063], parcels:4, area:6336, areaShare:0.4, valueShare:0.6},
-  "주차장": {avg:3119000, s:[32099615,38519538,44939460,53927353], parcels:2, area:3404, areaShare:0.2, valueShare:1.3},
-  "창고용지": {avg:847500, s:[8722162,10466594,12211027,14653232], parcels:1, area:3206, areaShare:0.2, valueShare:0.4},
-  "하천": {avg:526625, s:[5419833,6503800,7587766,9105319], parcels:14, area:3167, areaShare:0.2, valueShare:0.2},
-  "체육용지": {avg:1045000, s:[10754760,12905712,15056664,18067997], parcels:1, area:2082, areaShare:0.1, valueShare:0.3}
+  "답": {avg:580584, s:[5975157,7170188,7648201,8365219], parcels:532, area:563030, areaShare:39.8, valueShare:43.7, q1:419500, median:558200, q3:721100, iqr:301600, nPrice:491},
+  "전": {avg:479071, s:[4930422,5916506,6310940,6902590], parcels:618, area:549163, areaShare:38.9, valueShare:37.1, q1:344900, median:450900, q3:565000, iqr:220100, nPrice:584},
+  "임야": {avg:139286, s:[1433481,1720178,1834856,2006874], parcels:129, area:234496, areaShare:16.6, valueShare:3.3, q1:69600, median:87700, q3:142200, iqr:72600, nPrice:129},
+  "대지": {avg:2897319, s:[29818158,35781790,38167242,41745422], parcels:98, area:33742, areaShare:2.4, valueShare:12.2, q1:3223750, median:3463000, q3:3601000, iqr:377250, nPrice:98},
+  "공장용지": {avg:185800, s:[1912186,2294623,2447598,2677061], parcels:1, area:2, areaShare:0.0, valueShare:0.0},
+  "과수원": {avg:625400, s:[6436390,7723667,8238579,9010945], parcels:6, area:8018, areaShare:0.6, valueShare:0.7},
+  "구거": {avg:222775, s:[2292719,2751263,2934680,3209807], parcels:4, area:1143, areaShare:0.1, valueShare:0.0},
+  "도로": {avg:428771, s:[4412755,5295306,5648326,6177857], parcels:33, area:3899, areaShare:0.3, valueShare:0.1},
+  "목장용지": {avg:705000, s:[7255604,8706725,9287173,10157845], parcels:1, area:388, areaShare:0.0, valueShare:0.0},
+  "묘지": {avg:301060, s:[3098400,3718080,3965952,4337760], parcels:5, area:1054, areaShare:0.1, valueShare:0.0},
+  "유원지": {avg:712325, s:[7330990,8797188,9383667,10263386], parcels:4, area:6336, areaShare:0.4, valueShare:0.6},
+  "주차장": {avg:3119000, s:[32099615,38519538,41087507,44939460], parcels:2, area:3404, areaShare:0.2, valueShare:1.3},
+  "창고용지": {avg:847500, s:[8722162,10466594,11164367,12211027], parcels:1, area:3206, areaShare:0.2, valueShare:0.4},
+  "하천": {avg:526625, s:[5419833,6503800,6937386,7587766], parcels:14, area:3167, areaShare:0.2, valueShare:0.2},
+  "체육용지": {avg:1045000, s:[10754760,12905712,13766093,15056664], parcels:1, area:2082, areaShare:0.1, valueShare:0.3}
 }
-const scenarioLabels=["2.5조","3.0조","3.5조","4.2조"];
-const scenarioMultiples=["약 3.4배","약 4.1배","약 4.8배","약 5.7배"];
+const scenarioLabels=["2.5조","3.0조","3.2조","3.5조"];
+const scenarioMultiples=["약 3.4배","약 4.1배","약 4.3배","약 4.8배"];
 const land=document.getElementById("land");
 Object.keys(data).forEach(k=>{
   const o=document.createElement("option");
